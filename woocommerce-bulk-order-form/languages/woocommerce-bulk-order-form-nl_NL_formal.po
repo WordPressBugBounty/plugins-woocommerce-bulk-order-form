@@ -1,0 +1,749 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce Bulk Order Form\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-bulk-"
+"order-form\n"
+"POT-Creation-Date: 2021-07-18T23:47:38+00:00\n"
+"PO-Revision-Date: 2021-09-15 19:53+0200\n"
+"Last-Translator: WP Overnight <support@wpovernight.com>\n"
+"Language-Team: \n"
+"Language: nl_NL@formal\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: wc-bulk-order-form.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#. Plugin Name of the plugin
+msgid "WooCommerce Bulk Order Form"
+msgstr "WooCommerce Bulk Order Form"
+
+#. Plugin URI of the plugin
+msgid "https://wordpress.org/plugins/woocommerce-bulk-order-form/"
+msgstr "https://wordpress.org/plugins/woocommerce-bulk-order-form/"
+
+#. Description of the plugin
+msgid ""
+"Adds the [wcbulkorder] shortcode which allows you to display bulk order "
+"forms on any page in your site"
+msgstr ""
+"Voegt de [wcbulkorder] shortcode toe waarmee u bulk bestelformulieren op "
+"elke pagina van uw site kunt weergeven"
+
+#. Author of the plugin
+msgid "Ewout Fernhout, Varun Sridharan, Jeremiah Prummer"
+msgstr "Ewout Fernhout, Varun Sridharan, Jeremiah Prummer"
+
+#. Author URI of the plugin
+msgid "https://wpovernight.com/"
+msgstr "https://wpovernight.com/"
+
+#: bootstrap.php:168
+msgid "Cloning instances of the class is forbidden."
+msgstr "Het klonen van instanties van de klasse is verboden."
+
+#: bootstrap.php:180
+msgid "Unserializing instances of the class is forbidden."
+msgstr "Unserialiseren van instanties van de klasse is verboden."
+
+#: bootstrap.php:366
+#: includes/admin/settings_framework/class-wp-plugin-options.php:247
+#: includes/class-shortcode-handler.php:135
+msgid "Price"
+msgstr "Prijs"
+
+#: bootstrap.php:367
+#: includes/admin/settings_framework/class-wp-plugin-options.php:255
+#: includes/class-shortcode-handler.php:136
+msgid "Product"
+msgstr "Product"
+
+#: bootstrap.php:368
+#: includes/admin/settings_framework/class-wp-plugin-options.php:263
+#: includes/class-shortcode-handler.php:137
+msgid "Qty"
+msgstr "Aantal"
+
+#: bootstrap.php:369
+#: includes/admin/settings_framework/class-wp-plugin-options.php:271
+#: includes/class-shortcode-handler.php:138
+msgid "Variation"
+msgstr "Variatie"
+
+#: bootstrap.php:370
+#: includes/admin/settings_framework/class-wp-plugin-options.php:287
+#: includes/class-shortcode-handler.php:148
+#: includes/class-shortcode-handler.php:149
+msgid "Add to cart"
+msgstr "Toevoegen aan winkelwagen"
+
+#: bootstrap.php:371
+#: includes/admin/settings_framework/class-wp-plugin-options.php:206
+#: includes/admin/settings_framework/class-wp-plugin-options.php:295
+msgid "Cart"
+msgstr "Winkelwagen"
+
+#: bootstrap.php:372
+#: includes/admin/settings_framework/class-wp-plugin-options.php:207
+#: includes/admin/settings_framework/class-wp-plugin-options.php:304
+msgid "Checkout"
+msgstr "Afrekenen"
+
+#: form_templates/class-template-render.php:170
+msgid "Search for a product&hellip;"
+msgstr "Zoek naar een product &hellip;"
+
+#: includes/admin/class-admin-init.php:88
+#: includes/admin/settings_framework/class-wp-plugin-options.php:26
+msgid "Settings"
+msgstr "Instellingen"
+
+#: includes/admin/class-admin-init.php:104
+msgid "FAQ"
+msgstr "FAQ"
+
+#: includes/admin/class-admin-init.php:105
+msgid "Support"
+msgstr "Support"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:31
+msgid "Extensions"
+msgstr "Uitbreidingen"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:39
+msgid "General settings"
+msgstr "Algemene instellingen"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:43
+msgid "Products"
+msgstr "Producten"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:47
+msgid "Text translations"
+msgstr "Tekst vertalingen"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:54
+msgid "No extensions activated or installed."
+msgstr "Geen uitbreidingen geactiveerd of geïnstalleerd."
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:97
+msgid "Order form template"
+msgstr "Bestelformulier template"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:98
+msgid "Select which template you want to use."
+msgstr "Selecteer het template dat u wilt gebruiken."
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:109
+msgid "Number of rows"
+msgstr "Aantal rijen"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:110
+msgid "Number of rows to display on the bulk order form"
+msgstr "Aantal rijen dat in het Bulk Order Form moet worden weergegeven"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:119
+msgid "Maximum items"
+msgstr "Maximum aantal artikelen"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:120
+msgid "Maximum items to display in a search"
+msgstr "Maximum aantal artikelen om weer te geven in een zoekopdracht"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:127
+msgid "Exclude out of stock items"
+msgstr "Sluit producten die niet op voorraad zijn uit"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:131
+#: includes/admin/settings_framework/class-wp-plugin-options.php:220
+msgid "Enabled"
+msgstr "Ingeschakeld"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:132
+#: includes/admin/settings_framework/class-wp-plugin-options.php:221
+msgid "Disabled"
+msgstr "Uitgeschakeld"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:142
+msgid "\"Add to cart\" button on each row"
+msgstr "\"Toevoegen aan winkelwagen\" knop op elke rij"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:146
+#: includes/admin/settings_framework/class-wp-plugin-options.php:147
+msgid "Show \"Add to cart\" button on each row"
+msgstr "Toon de \"Toevoegen aan winkelwagen\" knop op elke rij"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:157
+msgid "\"Add row\" button"
+msgstr "\"Rij toevoegen\" knop"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:161
+#: includes/admin/settings_framework/class-wp-plugin-options.php:162
+msgid "Display \"Add row\" button?"
+msgstr "Knop \"Rij toevoegen\" weergeven?"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:167
+msgid "Add Rows (+)"
+msgstr "Voeg rijen toe (+)"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:168
+msgid "Add row"
+msgstr "Rij toevoegen"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:175
+msgid "Show product image"
+msgstr "Product afbeelding weergeven"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:179
+#: includes/admin/settings_framework/class-wp-plugin-options.php:180
+msgid "Display product image in autocomplete search & prepopulated templates?"
+msgstr ""
+"Productafbeelding tonen in autocomplete zoekfunctie & het \"Prepopulated\" "
+"template?"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:189
+msgid "Show price"
+msgstr "Toon prijs"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:193
+#: includes/admin/settings_framework/class-wp-plugin-options.php:194
+msgid "Display price on bulk order form?"
+msgstr "Toon de prijs in het bulk order form?"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:203
+msgid "After adding to cart, link to:"
+msgstr "Na het toevoegen aan de winkelwagen, link naar:"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:216
+msgid "Automatically redirect"
+msgstr "Automatisch doorverwijzen"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:217
+msgid ""
+"Redirect to cart or checkout automatically after successfully adding "
+"products to the cart"
+msgstr ""
+"Automatisch doorverwijzen naar winkelwagen of afrekenpagina na succesvolle "
+"toevoeging van producten aan de winkelwagen"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:231
+msgid "Product image width & height"
+msgstr "Breedte & hoogte van de productafbeelding"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:248
+msgid "Price column"
+msgstr "Prijs kolom"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:256
+msgid "Product column"
+msgstr "Product kolom"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:264
+msgid "Quantity column"
+msgstr "Aantal kolom"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:272
+msgid "Variation column"
+msgstr "Variatie kolom"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:279
+#: includes/class-shortcode-handler.php:150
+msgid "Total"
+msgstr "Totaal"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:280
+msgid "Order form total"
+msgstr "Bestelformulier totaal"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:288
+msgid "\"Add to cart\" button on single rows"
+msgstr "\"Toevoegen aan winkelwagen\" knop op enkele rijen"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:296
+msgid "Cart button"
+msgstr "Winkelwagen knop"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:305
+msgid "Checkout button"
+msgstr "Afrekenen knop"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:314
+msgid "Product category"
+msgstr "Productcategorie"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:315
+msgid "Select a category to list only products from that category"
+msgstr "Selecteer een categorie om alleen producten uit die categorie te tonen"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:326
+msgid "Excluded products"
+msgstr "Uitgesloten producten"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:327
+#: includes/admin/settings_framework/class-wp-plugin-options.php:344
+msgid "Search & select product by name."
+msgstr "Zoek en selecteer product op naam."
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:343
+msgid "Included products"
+msgstr "Inclusief producten"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:362
+msgid "Search by"
+msgstr "Zoeken op"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:363
+msgid "Search products based on selected criteria."
+msgstr "Zoek producten op basis van geselecteerde criteria."
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:371
+#: includes/admin/settings_framework/class-wp-plugin-options.php:384
+#: includes/functions.php:223
+msgid "Product attributes"
+msgstr "Product kenmerken"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:372
+msgid "This option is used only when \"Search by\" is set to \"All\"."
+msgstr ""
+"Deze optie wordt alleen gebruikt wanneer \"Zoeken op\" is ingesteld op \"Alle"
+"\"."
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:372
+msgid ""
+"Note: if attribute search is enabled when \"Search by\" is set to \"All\", "
+"the search process may become slow based on how many attributes you have. "
+"So, please select only the attributes you need to search in the field below."
+msgstr ""
+"Opmerking: als zoeken op kenmerken is ingeschakeld wanneer \"Zoeken op\" is "
+"ingesteld op \"Alle\", kan het zoekproces traag worden, afhankelijk van het "
+"aantal kenmerken dat u heeft. Selecteer dus alleen de kenmerken waarop u "
+"wilt zoeken in het onderstaande veld."
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:374
+msgid "Attributes will be searched"
+msgstr "Attributen zullen worden doorzocht"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:375
+msgid "Attributes will not be searched"
+msgstr "Attributen worden niet doorzocht"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:397
+msgid "Product result format"
+msgstr "Zoekresultaat format voor producten"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:398
+msgid "Choose your product search results format"
+msgstr "Kies het format waarin de zoekresultaten getoond worden"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:408
+msgid "Variation product result format"
+msgstr "Zoekresultaat format voor product variaties"
+
+#: includes/admin/settings_framework/class-wp-plugin-options.php:409
+msgid "Choose your variation product search results format"
+msgstr ""
+"Kies het format waarin de zoekresultaten voor product variaties getoond "
+"worden"
+
+#: includes/admin/settings_framework/class-wp-settings-framework.php:78
+msgid "Bulk Order Form Settings"
+msgstr "Bulk Order Form instellingen"
+
+#. translators: <a> tags
+#: includes/admin/settings_framework/class-wp-settings.php:720
+msgid ""
+"This feature is only available in %1$sWooCommerce Bulk Order Form Pro%2$s"
+msgstr ""
+"Deze functie is alleen beschikbaar in %1$sWooCommerce Bulk Order Form Pro%2$s"
+
+#: includes/admin/settings_framework/class-wp-settings.php:731
+msgid "Check out these premium extensions!"
+msgstr "Bekijk deze premium uitbreidingen!"
+
+#: includes/admin/settings_framework/class-wp-settings.php:732
+msgid "Click items to read more"
+msgstr "Klik op de items om meer te lezen"
+
+#: includes/admin/settings_framework/class-wp-settings.php:738
+msgid "Go Pro: Get WooCommerce Bulk Order Form Pro!"
+msgstr "Upgrade: Neem WooCommerce Bulk Order Form Pro!"
+
+#: includes/admin/settings_framework/class-wp-settings.php:740
+msgid "Supercharge WooCommerce Bulk Order Form with the following features:"
+msgstr "Supercharge WooCommerce Bulk Order Formulier met de volgende functies:"
+
+#: includes/admin/settings_framework/class-wp-settings.php:742
+msgid "Let user search by product id, title, sku, or all"
+msgstr "Laat gebruikers zoeken op product ID, titel, SKU of alles"
+
+#: includes/admin/settings_framework/class-wp-settings.php:743
+msgid ""
+"Choose from 5 different label outputs for the product field on your bulk "
+"order form"
+msgstr ""
+"Kies uit 5 verschillende output formats voor de zoekresultaten in uw bulk "
+"order form"
+
+#: includes/admin/settings_framework/class-wp-settings.php:744
+msgid ""
+"Automatically add extra product rows with the \"add row\" button (can be "
+"turned on or off)"
+msgstr ""
+"Laat gebruikers automatisch extra rijen toevoegen met een \"voeg rijen toe\" "
+"knop (kan worden uitgezet)"
+
+#: includes/admin/settings_framework/class-wp-settings.php:747
+msgid "Create and customize as many shortcodes as you want!"
+msgstr "Gebruik zoveel verschillende shortcodes als u wilt!"
+
+#: includes/admin/settings_framework/class-wp-settings.php:748
+msgid "Display images in product search"
+msgstr "Toon productafbeeldingen in de zoekresultaten"
+
+#: includes/admin/settings_framework/class-wp-settings.php:749
+msgid "Set custom add to cart success/failure messages"
+msgstr ""
+"Stel aangepaste berichten in succes/foutmeldingen na het toevoegen aan de "
+"winkelwagen"
+
+#: includes/admin/settings_framework/class-wp-settings.php:750
+msgid "Pick to send user to cart or checkout"
+msgstr "Kies of u de gebruiker naar de winkelwagen of afrekenpagina stuurt"
+
+#: includes/admin/settings_framework/class-wp-settings.php:751
+msgid "Option to include add to cart button next to each product field"
+msgstr "Optie om een winkelwagen knop naast elk productveld op te nemen"
+
+#: includes/admin/settings_framework/class-wp-settings.php:754
+msgid "Get WooCommerce Bulk Order Form Pro!"
+msgstr "Neem WooCommerce Bulk Order Form Pro!"
+
+#: includes/admin/settings_framework/class-wp-settings.php:761
+msgid "Bulk Order Form Prepopulated Template"
+msgstr "Bulk Order Form Prepopulated Template"
+
+#: includes/admin/settings_framework/class-wp-settings.php:763
+msgid ""
+"Remove the autocomplete search and pre-populate the form with your products "
+"and variations. (Very Popular!)"
+msgstr ""
+"Vervang het het zoekveld door een formulier dat al is ingevuld met uw "
+"producten en variaties. (Zeer Populair!)"
+
+#: includes/admin/settings_framework/class-wp-settings.php:766
+msgid "Get Bulk Order Form Prepopulated Template!"
+msgstr "Neem het Bulk Order Form Prepopulated Template!"
+
+#: includes/class-frontend.php:81
+msgid "No products found"
+msgstr "Geen producten gevonden"
+
+#: includes/class-frontend.php:82
+msgid "Please select a product"
+msgstr "Selecteer een product"
+
+#: includes/class-frontend.php:83
+msgid "Enter quantity"
+msgstr "Vul een aantal in"
+
+#: includes/class-frontend.php:84
+msgid "No variations"
+msgstr "Geen variaties"
+
+#: includes/class-frontend.php:90
+msgid "Go to checkout"
+msgstr "Afrekenen"
+
+#: includes/class-frontend.php:91
+msgid "View cart"
+msgstr "Bekijk winkelwagen"
+
+#. translators: plugin name
+#: includes/functions.php:104
+msgid ""
+"%s requires <strong>WooCommerce</strong> to be installed...  <br/> <i>Plugin "
+"Deactivated</i> "
+msgstr ""
+"%s vereist dat <strong>WooCommerce</strong> geïnstalleerd is... <br/> "
+"<i>Plugin gedeactiveerd</i> "
+
+#: includes/functions.php:163
+msgid "Standard template"
+msgstr "Standaard template"
+
+#: includes/functions.php:167
+msgid "Variation template"
+msgstr "Variatie template"
+
+#: includes/functions.php:219
+msgid "All"
+msgstr "Alles"
+
+#: includes/functions.php:220
+msgid "Product SKU"
+msgstr "Artikelnummer"
+
+#: includes/functions.php:221
+msgid "Product ID"
+msgstr "Product ID"
+
+#: includes/functions.php:222
+msgid "Product title"
+msgstr "Product titel"
+
+#: includes/functions.php:232
+msgid "[sku] - [title] - [price]"
+msgstr "[sku] - [titel] - [prijs]"
+
+#: includes/functions.php:233
+msgid "[title] - [price] - [sku]"
+msgstr "[titel] - [prijs] - [sku]"
+
+#: includes/functions.php:234
+msgid "[title] - [price]"
+msgstr "[titel] - [prijs]"
+
+#: includes/functions.php:235
+msgid "[title] - [sku]"
+msgstr "[titel] - [sku]"
+
+#: includes/functions.php:236
+msgid "[title]"
+msgstr "[titel]"
+
+#. translators: 1. plugin name, 2. WP version
+#: includes/helpers/class-version-check.php:29
+#: includes/helpers/class-version-check.php:69
+msgid "%1$s requires WordPress %2$s or higher!"
+msgstr "%1$s vereist WordPress %2$s of hoger!"
+
+#: includes/standard-template-add-to-cart-handler.php:76
+#: includes/variation-template-add-to-cart-handler.php:65
+msgid "Your product was successfully added to your cart"
+msgid_plural "Your products were successfully added to your cart"
+msgstr[0] "Het product is succesvol toegevoegd aan uw winkelwagen"
+msgstr[1] "De producten zijn succesvol toegevoegd aan uw winkelwagen"
+
+#. translators: 1. URL, 2. product/products
+#: includes/standard-template-add-to-cart-handler.php:78
+#: includes/variation-template-add-to-cart-handler.php:67
+msgid "<a class=\"button wc-forward\" href=\"%1$s\">View Cart</a> %2$s."
+msgstr ""
+"<a class=\"button wc-forward\" href=\"%1$s\">Winkelmand bekijken</a> %2$s."
+
+#: includes/standard-template-add-to-cart-handler.php:81
+#: includes/variation-template-add-to-cart-handler.php:70
+msgid "Looks like there was an error. Please try again."
+msgstr "Het lijkt erop dat er iets mis ging. Probeer het opnieuw."
+
+#~ msgid "Add To Cart"
+#~ msgstr "Plaats in winkelwagen"
+
+#~ msgid "F.A.Q"
+#~ msgstr "F.A.Q"
+
+#~ msgid "Addons"
+#~ msgstr "Uitbreidingen"
+
+#~ msgid "General Settings"
+#~ msgstr "Algemene Instellingen"
+
+#~ msgid "Text Translations"
+#~ msgstr "Tekstvertalingen"
+
+#~ msgid "No Addons Activated / Installed."
+#~ msgstr "Geen uitbreidingen geactiveerd / geïnstalleerd."
+
+#~ msgid "Order Form Template"
+#~ msgstr "Bestelformulier Template"
+
+#~ msgid "Number of Rows"
+#~ msgstr "Aantal rijen"
+
+#~ msgid "Maximum Items"
+#~ msgstr "Maximum items"
+
+#~ msgid "Maximum Items to Display in a Search"
+#~ msgstr "Maximaal aantal items om weer te geven in een zoekopdracht"
+
+#~ msgid "Each Row Cart Button"
+#~ msgstr "Winkelwagen knop per rij"
+
+#~ msgid "Show Add To Cart Button on each row"
+#~ msgstr ""
+#~ "Toon een knop om product aan de winkelwagen toe te voegen bij elke rij"
+
+#~ msgid "Add Rows Button"
+#~ msgstr "Rij toevoegen knop"
+
+#~ msgid "Display Add Row Button ?"
+#~ msgstr "Toon een knop om rijen toe te voegen"
+
+#~ msgid "Show Product Image "
+#~ msgstr "Toon productafbeelding"
+
+#~ msgid ""
+#~ "Display Product Image in Autocomplete search & preopulated templates?"
+#~ msgstr ""
+#~ "Laat productafbeelding zien in de zoekresultaten en in de prepopulated "
+#~ "templates?"
+
+#~ msgid "Show Price "
+#~ msgstr "Toon prijs"
+
+#~ msgid "Set button to cart or checkout?"
+#~ msgstr "Verwijs knop naar winkelwagen of afrekenen?"
+
+#~ msgid "Product Image Width & Height"
+#~ msgstr "Productafbeelding breedte & hoogte"
+
+#~ msgid "Order Form total"
+#~ msgstr "Bestelformulier totaal"
+
+#~ msgid "Single Row Add To Cart button"
+#~ msgstr "Winkelwagen knop in de formulier rijen"
+
+#~ msgid "Product Category"
+#~ msgstr "Productcategorie"
+
+#~ msgid "Select The Category to list only products from that category"
+#~ msgstr ""
+#~ "Selecteer een categorie om enkel producten uit die categorie te tonen"
+
+#~ msgid "Excluded Products"
+#~ msgstr "Uitgesloten producten"
+
+#~ msgid "Search & Select product by name."
+#~ msgstr "Zoek & selecteer producten op naam"
+
+#~ msgid "Included Products"
+#~ msgstr "Opgenomen producten"
+
+#~ msgid "Search By"
+#~ msgstr "Zoek op"
+
+#~ msgid "When searching for products search by:"
+#~ msgstr "Voer de zoekopdracht voor producten uit op:"
+
+#, php-format
+#~ msgid "This option is used only when search by is set to all %s"
+#~ msgstr ""
+#~ "Deze optie wordt alleen gebruikt wanneer zoeken is ingesteld op alles %s"
+
+#~ msgid ""
+#~ "Note : if attribute search enabled when search by set to `ALL` search "
+#~ "process may become slow based on how many attribute you have. so please "
+#~ "do select only the attribute you need to be search in below field. "
+#~ msgstr ""
+#~ "Let op : wanneer zoeken op producteigenschap is ingeschakeld en \"Zoek op"
+#~ "\" is ingesteld op \"alles\", kan het zoekproces traag worden afhankelijk "
+#~ "van het aantal producteigenschappen. Selecteer daarom enkel de "
+#~ "producteigenschappen waar op gezocht moet worden in onderstaand veld."
+
+#~ msgid "Product Attributes"
+#~ msgstr "Producteigenschappen"
+
+#~ msgid "Attributes Will Be Searched."
+#~ msgstr "Producteigenschappen worden doorzocht."
+
+#~ msgid "Attributes Will Not Be Searched."
+#~ msgstr "Producteigenschappen worden NIET doorzocht"
+
+#~ msgid "Product Result Format"
+#~ msgstr "Zoekresultaat format"
+
+#~ msgid "Variation Product Result Format"
+#~ msgstr "Variatie zoekresultaat format"
+
+#, php-format
+#~ msgid ""
+#~ "This feature is only available in %sWooCommerce Bulk Order Form Pro%s"
+#~ msgstr ""
+#~ "Deze functionaliteit is alleen beschikbaar in  %sWooCommerce Bulk Order "
+#~ "Form Pro%s"
+
+#~ msgid ""
+#~ "Remove the autocomplete search and pre-populate the form with your "
+#~ "products and variations. (Very Popular)!"
+#~ msgstr ""
+#~ "Vervang de zoekvelden in het formulier door een vooringevulde lijst met "
+#~ "je producten en variaties. (erg populair)!"
+
+#~ msgid ""
+#~ " requires <b> WooCommerce </b> To Be Installed..  <br/> <i>Plugin "
+#~ "Deactivated</i> "
+#~ msgstr ""
+#~ "vereist dat <b> WooCommerce </b> Geinstalleerd is..  <br/> <i>Plugin "
+#~ "gedeactiveerd</i> "
+
+#~ msgid "Standard Template"
+#~ msgstr "Standaard Template"
+
+#~ msgid "Variation Template"
+#~ msgstr "Variatie Template"
+
+#~ msgid "Product Title"
+#~ msgstr "Producttitel"
+
+#~ msgid " requires WordPress "
+#~ msgstr " vereist WordPress "
+
+#~ msgid "product"
+#~ msgid_plural "products"
+#~ msgstr[0] "product"
+#~ msgstr[1] "producten"
+
+#, php-format
+#~ msgid ""
+#~ "<a class=\"button wc-forward\" href=\"%s\">View Cart</a> Your %s was "
+#~ "successfully added to your cart."
+#~ msgstr ""
+#~ "<a class=\"button wc-forward\" href=\"%s\">Bekijk winkelwagen</a> Je %s "
+#~ "werd met succes toegevoegd aan je winkelwagen."
+
+#~ msgid "This product is currently out of stock and unavailable."
+#~ msgstr ""
+#~ "Dit product is momenteel niet op voorraad en kan niet worden besteld"
+
+#~ msgid "Clear"
+#~ msgstr "Maak leeg"
+
+#~ msgid ""
+#~ "Sorry, this product is unavailable. Please choose a different combination."
+#~ msgstr "Sorry, dit product is niet beschikbaar. Kies een andere combinatie"
+
+#~ msgid "Title for price fields"
+#~ msgstr "Titel voor Prijs velden"
+
+#~ msgid "Title for product fields"
+#~ msgstr "Titel voor Product velden"
+
+#~ msgid "Title for quantity fields"
+#~ msgstr "Titel voor Aantal velden"
+
+#~ msgid "Title for variation fields"
+#~ msgstr "Titel voor Variatie velden"
+
+#~ msgid "Product Attribute Format"
+#~ msgstr "Producteigenschap format"
+
+#~ msgid ""
+#~ "Display Attribute Title or Just attribute value Eg : <code>Color:Red</"
+#~ "code> | <code>Red</code>"
+#~ msgstr ""
+#~ "Toon titel van eigenschap of enkel de eigenschap. Bijvoorbeeld : "
+#~ "<code>Kleur: Rood</code> | <code>Rood</code>"
+
+#~ msgid "Attribute Value Only (recommended)"
+#~ msgstr "Enkel eigenschap (aanbevolen)"
+
+#~ msgid "Attribute Title And Value"
+#~ msgstr "Eigenschap en titel"
