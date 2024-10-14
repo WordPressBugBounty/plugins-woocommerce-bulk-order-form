@@ -7,7 +7,7 @@ Donate link:
 Requires at least: 4.0
 Tested up to: 6.6
 Requires PHP: 7.2
-Stable tag: 3.6.5
+Stable tag: 3.6.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html 
 
@@ -39,6 +39,10 @@ The shortcode is extremely customizable and includes the following awesome featu
 * Create as many forms as you want and customize them with shortcode attributes
 
 == Changelog ==
+
+= 3.6.6 (2024-10-14) =
+* Fix: Load plugin translations later in the `init` hook.
+* Tested: Compatible with WooCommerce 9.4.
 
 = 3.6.5 (2024-06-26) =
 * Tested up to WooCommerce 9.0 & WordPress 6.6
