@@ -32,9 +32,9 @@ class WooCommerce_Bulk_Order_Form_Settings_WP_Fields {
 		$value        = (string) esc_attr( $this->get_option( $args ) );
 		$error        = $this->get_setting_error( $args['id'] );
 		$disabled     = ( isset( $args['disabled'] ) || ( isset( $args['pro_option'] ) && ! class_exists( 'WooCommerce_Bulk_Order_Form_Pro' ) ) ) ? ' disabled' : '';
-		$html         = sprintf( '<input type="%6$s" id="%1$s_%2$s" name="%1$s[%2$s]" value="%3$s"%4$s%5$s %7$s/>', $args['section'], $args['id'], $value, $args['attr'], $error, $type, $disabled );
+		$html         = sprintf( '<input type="%6$s" id="%1$s_%2$s" name="%1$s[%2$s]" value="%3$s"%4$s%5$s %7$s />', $args['section'], $args['id'], $value, $args['attr'], $error, $type, $disabled );
 
-		echo $args['before'] . $html . $args['after'] . $this->description( $args['desc'] );
+		echo wp_kses( $args['before'] . $html . $args['after'] . $this->description( $args['desc'] ), WC_BOF_ALLOWED_HTML );
 	}
 
 
@@ -51,7 +51,7 @@ class WooCommerce_Bulk_Order_Form_Settings_WP_Fields {
 		$disabled = ( isset( $args['disabled'] ) || ( isset( $args['pro_option'] ) && ! class_exists( 'WooCommerce_Bulk_Order_Form_Pro' ) ) ) ? ' disabled' : '';
 		$html     = sprintf( '<textarea id="%1$s_%2$s" name="%1$s[%2$s]"%4$s%5$s %6$s>%3$s</textarea>', $args['section'], $args['id'], $value, $args['attr'], $error, $disabled );
 
-		echo $args['before'] . $html . $args['after'] . $this->description( $args['desc'] );
+		echo wp_kses( $args['before'] . $html . $args['after'] . $this->description( $args['desc'] ), WC_BOF_ALLOWED_HTML );
 	}
 
 
@@ -76,7 +76,7 @@ class WooCommerce_Bulk_Order_Form_Settings_WP_Fields {
 			$html .= sprintf( '<option value="%s"%s>%s</option>', $opt, $selected, $label );
 		}
 		$html .= sprintf( '</select>' );
-		echo $args['before'] . $html . $args['after'] . $this->description( $args['desc'] );
+		echo wp_kses( $args['before'] . $html . $args['after'] . $this->description( $args['desc'] ), WC_BOF_ALLOWED_HTML );
 	}
 
 
@@ -91,10 +91,10 @@ class WooCommerce_Bulk_Order_Form_Settings_WP_Fields {
 		$error    = $this->get_setting_error( $args['id'], ' style="border: 1px solid red; padding: 2px 1em 2px 0; "' );
 		$html     = '';
 		$disabled = ( isset( $args['disabled'] ) || ( isset( $args['pro_option'] ) && ! class_exists( 'WooCommerce_Bulk_Order_Form_Pro' ) ) ) ? ' disabled' : '';
-		$input    = sprintf( '<input type="checkbox" id="%1$s_%2$s" name="%1$s[%2$s]" value="on"%4$s%5$s %6$s/>', $args['section'], $args['id'], $value, checked( $value, 'on', false ), $args['attr'], $disabled );
+		$input    = sprintf( '<input type="checkbox" id="%1$s_%2$s" name="%1$s[%2$s]" value="on"%4$s%5$s %6$s />', $args['section'], $args['id'], $value, checked( $value, 'on', false ), $args['attr'], $disabled );
 		$html     .= sprintf( '<label for="%1$s_%2$s"%5$s>%3$s %4$s</label>', $args['section'], $args['id'], $input, $args['desc'], $error );
 
-		echo $html;
+		echo wp_kses( $html, WC_BOF_ALLOWED_HTML );
 	}
 
 
@@ -119,7 +119,8 @@ class WooCommerce_Bulk_Order_Form_Settings_WP_Fields {
 			$html     .= ( ++$i < $count ) ? '<br/>' : '';
 		}
 
-		echo $html . '</fieldset>' . $this->description( $args['desc'] );
+		$html .= '</fieldset>' . $this->description( $args['desc'] );
+		echo wp_kses( $html, WC_BOF_ALLOWED_HTML );
 	}
 
 
@@ -145,13 +146,13 @@ class WooCommerce_Bulk_Order_Form_Settings_WP_Fields {
 		$count = count( $args['options'] );
 		foreach ( (array) $args['options'] as $opt => $label ) {
 			$disabled = ( isset( $args['disabled'] ) || ( isset( $args['pro_option'] ) && ! class_exists( 'WooCommerce_Bulk_Order_Form_Pro' ) ) ) ? ' disabled' : '';
-			$input    = sprintf( '<input type="radio" id="%1$s_%2$s_%3$s" name="%1$s[%2$s]" value="%3$s"%4$s%5$s %6$s/>', $args['section'], $args['id'], $opt, checked( $value, $opt, false ), $args['attr'], $disabled );
+			$input    = sprintf( '<input type="radio" id="%1$s_%2$s_%3$s" name="%1$s[%2$s]" value="%3$s"%4$s%5$s %6$s />', $args['section'], $args['id'], $opt, checked( $value, $opt, false ), $args['attr'], $disabled );
 			$html     .= sprintf( '<label for="%1$s_%2$s_%4$s">%3$s%5$s</label>', $args['section'], $args['id'], $input, $opt, ' <span>' . $label . '</span>' );
 			$html     .= ( isset( $args['row_after'][ $opt ] ) && $args['row_after'][ $opt ] ) ? $args['row_after'][ $opt ] : '';
 			$html     .= ( ++ $i < $count ) ? '<br/>' : '';
 		}
 
-		echo '</fieldset>' . $html . $this->description( $args['desc'] );
+		echo wp_kses( '</fieldset>' . $html . $this->description( $args['desc'] ), WC_BOF_ALLOWED_HTML );
 	}
 
 
@@ -162,10 +163,10 @@ class WooCommerce_Bulk_Order_Form_Settings_WP_Fields {
 	 */
 	public function callback_content( array $args ): void {
 		if ( isset( $args['content'] ) ) {
-			echo $args['content'];
+			echo wp_kses( $args['content'], WC_BOF_ALLOWED_HTML );
 		}
 		if ( isset( $args['desc'] ) ) {
-			echo $this->description( $args['desc'] );
+			echo wp_kses( $this->description( $args['desc'] ), WC_BOF_ALLOWED_HTML );
 		}
 	}
 

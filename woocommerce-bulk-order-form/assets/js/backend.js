@@ -37,7 +37,7 @@ jQuery( function ( $ ) {
 	}
 
 	// disabled pro features
-	$( "input.wcbulkorder-disabled" ).attr( 'disabled', true );
+	$( 'input.wcbulkorder-disabled' ).attr( 'disabled', true );
 
 	$( '.extensions .more' ).hide();
 	$( '.extensions > li' ).on('click', function () {

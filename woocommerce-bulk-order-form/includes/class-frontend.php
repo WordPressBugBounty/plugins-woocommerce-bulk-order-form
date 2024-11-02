@@ -65,6 +65,7 @@ class WooCommerce_Bulk_Order_Form_Functions {
 			'checkouturl'               => wc_get_checkout_url(),
 			'carturl'                   => wc_get_cart_url(),
 			'price_format'              => get_woocommerce_price_format(),
+			'nonce'                     => wp_create_nonce( 'wc_bof_nonce' ),
 		) );
 
 		wp_localize_script( WC_BOF_NAME . 'frontend_script', 'WCBulkOrder', $localize_arr );

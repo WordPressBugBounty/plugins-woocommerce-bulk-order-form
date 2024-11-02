@@ -244,7 +244,10 @@ if ( ! function_exists( 'wc_bof_settings_get_categories' ) ) {
 			$args['number']                 = 0;
 			$args['pad_counts']             = true;
 			$args['update_term_meta_cache'] = false;
-			$terms                          = get_terms( $tax, $args );
+			$terms                          = get_terms( array(
+												'taxonomy' => $tax,
+												'args'     => $args,
+											) );
 			$output                         = array();
 		}
 		foreach ( $terms as $term ) {

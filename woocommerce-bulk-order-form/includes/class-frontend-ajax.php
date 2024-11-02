@@ -21,6 +21,10 @@ class WooCommerce_Bulk_Order_Form_Ajax_FrontEnd {
 	}
 
 	public function product_search(): void {
+		if ( ! isset( $_REQUEST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_REQUEST['nonce'] ) ), 'wc_bof_nonce' ) ) {
+			wp_send_json_error( 'Invalid nonce' );
+		}
+
 		$request = stripslashes_deep( $_REQUEST );
 
 		if ( isset( $request['wcbulkorder'] ) && is_array( $request['wcbulkorder'] ) ) {
@@ -58,7 +62,7 @@ class WooCommerce_Bulk_Order_Form_Ajax_FrontEnd {
 
 	public function add_to_cart_process(): void {
 		$return  = '';
-		$request = stripslashes_deep( $_REQUEST );
+		$request = stripslashes_deep( $_REQUEST ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended, WordPress.Security.NonceVerification.Missing
 
 		if ( isset( $request['wcbulkorder'] ) && is_array( $request['wcbulkorder'] ) ) {
 			$data = apply_filters( 'wc_bof_add_to_cart_data', $this->sanitize_array_data( $request['wcbulkorder'] ) );
@@ -78,6 +82,10 @@ class WooCommerce_Bulk_Order_Form_Ajax_FrontEnd {
 	}
 
 	public function single_add_to_cart_process(): void {
+		if ( ! isset( $_REQUEST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_REQUEST['nonce'] ) ), 'wc_bof_nonce' ) ) {
+			wp_send_json_error( 'Invalid nonce' );
+		}
+		
 		$return  = '';
 		$request = stripslashes_deep( $_REQUEST );
 

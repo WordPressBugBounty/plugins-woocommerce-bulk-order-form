@@ -298,7 +298,7 @@ wc_bof_handler.prototype.single_add_to_cart_handler = function ( formid, clickel
 	var formVal = inpt_row.find( ':input' ).serialize();
 
 	data = data + '&' + formVal;
-	data = data + '&action=wcbulkorder_product_single_buy_now';
+	data = data + '&action=wcbulkorder_product_single_buy_now&nonce=' + WCBulkOrder.nonce;
 	elem.addClass( 'processing' );
 	inpt_row.css( 'opacity', 0.5 ).addClass( 'processing' );
 

@@ -219,7 +219,7 @@ function wc_bof_init_selectize ( selectbox ) {
 					already_searched = true;
 				}
 
-				POSTDATAS = 'action=wcbulkorder_product_search&term=' + query + '&';
+				POSTDATAS = 'action=wcbulkorder_product_search&term=' + query + '&nonce=' + WCBulkOrder.nonce + '&';
 				POSTDATAS = POSTDATAS + bof_form.find( ".form_hidden_fileds :input" ).serialize();
 				bofxhr    = jQuery.ajax( {
 					url: WCBulkOrder.url,

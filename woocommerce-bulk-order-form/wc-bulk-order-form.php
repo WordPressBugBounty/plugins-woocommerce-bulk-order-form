@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name:          Bulk Order Form for WooCommerce
- * Plugin URI:           https://wordpress.org/plugins/woocommerce-bulk-order-form/
+ * Plugin URI:           https://wpovernight.com/downloads/woocommerce-bulk-order-form/
  * Description:          Adds the [wcbulkorder] shortcode which allows you to display bulk order forms on any page in your site
- * Version:              3.6.6
+ * Version:              3.6.8
  * Author:               WP Overnight
  * Author URI:           https://wpovernight.com/
  * License:              GPLv2 or later
@@ -55,7 +55,7 @@ class WooCommerce_Bulk_Order_Form {
 	 *
 	 * @var string
 	 */
-	public $version = '3.6.6';
+	public $version = '3.6.8';
 
 	public function __construct() {
 		$this->define_constant();
@@ -75,7 +75,6 @@ class WooCommerce_Bulk_Order_Form {
 		$this->define( 'WC_BOF_INC', WC_BOF_PATH . 'includes/' ); # Plugin INC Folder
 		$this->define( 'WC_BOF_NAME', 'Bulk Order Form for WooCommerce' ); # Plugin Name
 		$this->define( 'WC_BOF_SLUG', 'woocommerce-bulk-order-form' ); # Plugin Slug
-		$this->define( 'WC_BOF_TXT', 'woocommerce-bulk-order-form' ); #plugin lang Domain
 		$this->define( 'WC_BOF_DB', 'wc_bof_' );
 		$this->define( 'WC_BOF_V', $this->version ); # Plugin Version
 		$this->define( 'WC_BOF_LANGUAGE_PATH', WC_BOF_PATH . 'languages' ); # Plugin Language Folder
@@ -87,6 +86,81 @@ class WooCommerce_Bulk_Order_Form {
 		$this->define( 'WC_BOF_JS', WC_BOF_URL . 'assets/js/' ); # Plugin JS URL
 		$this->define( 'WC_BOF_TEMPLATE_URL', WC_BOF_URL . 'form_templates/' );  # templates URL
 		$this->define( 'WC_BOF_TEMPLATE_PATH', WC_BOF_PATH . 'form_templates/' ); # templates Folder
+		$this->define( 'WC_BOF_ALLOWED_HTML', array(
+			'a'        => array(
+				'href'          => array(),
+				'title'         => array(),
+				'id'            => array(),
+				'class'         => array(),
+				'style'         => array(),
+			),
+			'br'       => array(),
+			'em'       => array(),
+			'strong'   => array(),
+			'div'      => array(
+				'id'            => array(),
+				'class'         => array(),
+				'style'         => array(),
+				'data-count'    => array(),
+			),
+			'span'     => array(
+				'id'            => array(),
+				'class'         => array(),
+				'style'         => array(),
+			),
+			'p'        => array(
+				'id'            => array(),
+				'class'         => array(),
+				'style'         => array(),
+			),
+			'b'        => array(),
+			'i'        => array(
+				'class'         => array(),
+			),
+			'input'    => array(
+				'id'            => array(),
+				'type'          => array(),
+				'name'          => array(),
+				'value'         => array(),
+				'class'         => array(),
+				'data-count'    => array(),
+				'data-currency' => array(),
+				'min'           => array(),
+				'max'           => array(),
+				'step'          => array(),
+				'checked'       => array(),
+				'data-fprice'   => array(),
+				'data-price'    => array(),
+				'disabled'      => array(),
+				'placeholder'   => array(),
+				'autocomplete'  => array(),
+			),
+			'select'   => array(
+				'name'          => array(),
+				'class'         => array(),
+				'style'         => array(),
+				'placeholder'   => array(),
+				'disabled'      => array(),
+			),
+			'textarea' => array(
+				'id'            => array(),
+				'name'          => array(),
+				'class'         => array(),
+				'style'         => array(),
+				'rows'          => array(),
+				'cols'          => array(),
+				'disabled'      => array(),
+			),
+			'option'   => array(
+				'value'         => array(),
+				'selected'      => array(),
+			),
+			'label'    => array(
+				'for'           => array(),
+				'class'         => array(),
+			),
+			'fieldset' => array(),
+		) );
 	}
 
 	/**
@@ -152,7 +226,7 @@ class WooCommerce_Bulk_Order_Form {
 	 * @return void
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, __( 'Cloning instances of the class is forbidden.', 'woocommerce-bulk-order-form' ), WC_BOF_V );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning instances of the class is forbidden.', 'woocommerce-bulk-order-form' ), esc_html( WC_BOF_V ) );
 	}
 
 	/**
@@ -164,7 +238,7 @@ class WooCommerce_Bulk_Order_Form {
 	 * @return void
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, __( 'Unserializing instances of the class is forbidden.', 'woocommerce-bulk-order-form' ), WC_BOF_V );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances of the class is forbidden.', 'woocommerce-bulk-order-form' ), esc_html( WC_BOF_V ) );
 	}
 
 	public function init_class(): void {

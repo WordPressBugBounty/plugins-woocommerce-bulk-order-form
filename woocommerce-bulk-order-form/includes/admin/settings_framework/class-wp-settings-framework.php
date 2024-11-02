@@ -127,13 +127,11 @@ class WooCommerce_Bulk_Order_Form_Settings_Framework {
 	}
 
 	public function admin_page(): void {
-		$options = get_option( 'wc_bof_products_wc_bof' );
-		print_r( $options );
 		settings_errors();
 		?>
 		<div class="wrap">
 			<div class="wc_bof_settings">
-				<h2><?php _e( 'Bulk Order Form for WooCommerce Settings', 'woocommerce-bulk-order-form' ); ?></h2>
+				<h2><?php esc_html_e( 'Bulk Order Form for WooCommerce Settings', 'woocommerce-bulk-order-form' ); ?></h2>
 				<!-- Main menu -->
 				<?php do_action( 'wc_bof_before_settings_tabs', $this->settings->current_page ); ?>
 				<?php $this->settings->render_header(); ?>

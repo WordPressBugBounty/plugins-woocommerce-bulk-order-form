@@ -2,35 +2,40 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Bulk Order Form for WooCommerce 3.6.6\n"
+"Project-Id-Version: Bulk Order Form for WooCommerce 3.6.8\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-bulk-order-form\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-10-14T16:07:38+02:00\n"
+"POT-Creation-Date: 2024-11-01T08:01:08+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.7.1\n"
+"X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: woocommerce-bulk-order-form\n"
 
 #. Plugin Name of the plugin
+#: wc-bulk-order-form.php
 msgid "Bulk Order Form for WooCommerce"
 msgstr ""
 
 #. Plugin URI of the plugin
-msgid "https://wordpress.org/plugins/woocommerce-bulk-order-form/"
+#: wc-bulk-order-form.php
+msgid "https://wpovernight.com/downloads/woocommerce-bulk-order-form/"
 msgstr ""
 
 #. Description of the plugin
+#: wc-bulk-order-form.php
 msgid "Adds the [wcbulkorder] shortcode which allows you to display bulk order forms on any page in your site"
 msgstr ""
 
 #. Author of the plugin
+#: wc-bulk-order-form.php
 msgid "WP Overnight"
 msgstr ""
 
 #. Author URI of the plugin
+#: wc-bulk-order-form.php
 msgid "https://wpovernight.com/"
 msgstr ""
 
@@ -154,13 +159,13 @@ msgstr ""
 
 #: includes/admin/settings_framework/class-wp-plugin-options.php:182
 #: includes/admin/settings_framework/class-wp-plugin-options.php:265
-#: wc-bulk-order-form.php:355
+#: wc-bulk-order-form.php:429
 msgid "Cart"
 msgstr ""
 
 #: includes/admin/settings_framework/class-wp-plugin-options.php:183
 #: includes/admin/settings_framework/class-wp-plugin-options.php:274
-#: wc-bulk-order-form.php:356
+#: wc-bulk-order-form.php:430
 msgid "Checkout"
 msgstr ""
 
@@ -178,7 +183,7 @@ msgstr ""
 
 #: includes/admin/settings_framework/class-wp-plugin-options.php:217
 #: includes/class-shortcode-handler.php:118
-#: wc-bulk-order-form.php:350
+#: wc-bulk-order-form.php:424
 msgid "Price"
 msgstr ""
 
@@ -188,7 +193,7 @@ msgstr ""
 
 #: includes/admin/settings_framework/class-wp-plugin-options.php:225
 #: includes/class-shortcode-handler.php:119
-#: wc-bulk-order-form.php:351
+#: wc-bulk-order-form.php:425
 msgid "Product"
 msgstr ""
 
@@ -198,7 +203,7 @@ msgstr ""
 
 #: includes/admin/settings_framework/class-wp-plugin-options.php:233
 #: includes/class-shortcode-handler.php:120
-#: wc-bulk-order-form.php:352
+#: wc-bulk-order-form.php:426
 msgid "Qty"
 msgstr ""
 
@@ -208,7 +213,7 @@ msgstr ""
 
 #: includes/admin/settings_framework/class-wp-plugin-options.php:241
 #: includes/class-shortcode-handler.php:121
-#: wc-bulk-order-form.php:353
+#: wc-bulk-order-form.php:427
 msgid "Variation"
 msgstr ""
 
@@ -228,7 +233,7 @@ msgstr ""
 #: includes/admin/settings_framework/class-wp-plugin-options.php:257
 #: includes/class-shortcode-handler.php:131
 #: includes/class-shortcode-handler.php:132
-#: wc-bulk-order-form.php:354
+#: wc-bulk-order-form.php:428
 msgid "Add to cart"
 msgstr ""
 
@@ -315,72 +320,91 @@ msgstr ""
 msgid "Bulk Order Form Settings"
 msgstr ""
 
-#: includes/admin/settings_framework/class-wp-settings-framework.php:136
+#: includes/admin/settings_framework/class-wp-settings-framework.php:134
 msgid "Bulk Order Form for WooCommerce Settings"
 msgstr ""
 
-#: includes/admin/settings_framework/class-wp-settings.php:677
+#: includes/admin/settings_framework/class-wp-settings.php:678
 msgid "Check out these premium extensions!"
 msgstr ""
 
-#: includes/admin/settings_framework/class-wp-settings.php:678
+#: includes/admin/settings_framework/class-wp-settings.php:679
 msgid "Click items to read more"
 msgstr ""
 
-#: includes/admin/settings_framework/class-wp-settings.php:684
+#: includes/admin/settings_framework/class-wp-settings.php:685
 msgid "Go Pro: Get Bulk Order Form for WooCommerce Pro!"
 msgstr ""
 
-#: includes/admin/settings_framework/class-wp-settings.php:686
+#: includes/admin/settings_framework/class-wp-settings.php:687
 msgid "Supercharge Bulk Order Form for WooCommerce with the following features:"
 msgstr ""
 
-#: includes/admin/settings_framework/class-wp-settings.php:688
+#: includes/admin/settings_framework/class-wp-settings.php:689
 msgid "Let user search by product id, title, sku, or all"
 msgstr ""
 
-#: includes/admin/settings_framework/class-wp-settings.php:689
+#: includes/admin/settings_framework/class-wp-settings.php:690
 msgid "Choose from 5 different label outputs for the product field on your bulk order form"
 msgstr ""
 
-#: includes/admin/settings_framework/class-wp-settings.php:690
+#: includes/admin/settings_framework/class-wp-settings.php:691
 msgid "Automatically add extra product rows with the \"add row\" button (can be turned on or off)"
 msgstr ""
 
-#: includes/admin/settings_framework/class-wp-settings.php:693
+#: includes/admin/settings_framework/class-wp-settings.php:694
 msgid "Create and customize as many shortcodes as you want!"
 msgstr ""
 
-#: includes/admin/settings_framework/class-wp-settings.php:694
+#: includes/admin/settings_framework/class-wp-settings.php:695
 msgid "Display images in product search"
 msgstr ""
 
-#: includes/admin/settings_framework/class-wp-settings.php:695
+#: includes/admin/settings_framework/class-wp-settings.php:696
 msgid "Set custom add to cart success/failure messages"
 msgstr ""
 
-#: includes/admin/settings_framework/class-wp-settings.php:696
+#: includes/admin/settings_framework/class-wp-settings.php:697
 msgid "Pick to send user to cart or checkout"
 msgstr ""
 
-#: includes/admin/settings_framework/class-wp-settings.php:697
+#: includes/admin/settings_framework/class-wp-settings.php:698
 msgid "Option to include add to cart button next to each product field"
 msgstr ""
 
-#: includes/admin/settings_framework/class-wp-settings.php:700
+#: includes/admin/settings_framework/class-wp-settings.php:701
 msgid "Get Bulk Order Form for WooCommerce Pro!"
 msgstr ""
 
-#: includes/admin/settings_framework/class-wp-settings.php:707
+#: includes/admin/settings_framework/class-wp-settings.php:708
 msgid "Bulk Order Form Prepopulated Template"
 msgstr ""
 
-#: includes/admin/settings_framework/class-wp-settings.php:709
+#: includes/admin/settings_framework/class-wp-settings.php:710
 msgid "Remove the autocomplete search and pre-populate the form with your products and variations. (Very Popular!)"
 msgstr ""
 
-#: includes/admin/settings_framework/class-wp-settings.php:712
+#: includes/admin/settings_framework/class-wp-settings.php:713
 msgid "Get Bulk Order Form Prepopulated Template!"
+msgstr ""
+
+#. translators: 1. Plugin name, 2. PHP version
+#: includes/class-dependencies.php:61
+msgid "<strong>%1$s</strong> requires PHP %2$s or higher."
+msgstr ""
+
+#: includes/class-dependencies.php:62
+msgid "How to update your PHP version"
+msgstr ""
+
+#. translators: 1. Plugin name, 2: Opening anchor tag, 3: Closing anchor tag
+#: includes/class-dependencies.php:68
+msgid "<strong>%1$s</strong> requires %2$sWooCommerce%3$s to be installed & activated!"
+msgstr ""
+
+#. translators: 1. Plugin name, 2: WooCommerce version, 3: Opening anchor tag, 4: Closing anchor tag
+#: includes/class-dependencies.php:74
+msgid "<strong>%1$s</strong> requires at least version %2$s of WooCommerce to be installed. %3$sGet the latest version here%4$s!"
 msgstr ""
 
 #: includes/class-frontend.php:54
@@ -469,10 +493,22 @@ msgstr ""
 msgid "Looks like there was an error. Please try again."
 msgstr ""
 
-#: wc-bulk-order-form.php:155
+#: templates/add-to-cart/variable.php:20
+msgid "This product is currently out of stock and unavailable."
+msgstr ""
+
+#: templates/add-to-cart/variable.php:40
+msgid "Clear"
+msgstr ""
+
+#: templates/add-to-cart/variation.php:31
+msgid "Sorry, this product is unavailable. Please choose a different combination."
+msgstr ""
+
+#: wc-bulk-order-form.php:229
 msgid "Cloning instances of the class is forbidden."
 msgstr ""
 
-#: wc-bulk-order-form.php:167
+#: wc-bulk-order-form.php:241
 msgid "Unserializing instances of the class is forbidden."
 msgstr ""

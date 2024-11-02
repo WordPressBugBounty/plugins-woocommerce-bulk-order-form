@@ -1,3 +1,5 @@
+<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly ?>
+
 <table class="wcbulkordertable wcbulkorderproducttbl" id="wcbulkorderproducttbl">
 	<thead>
 		<tr>

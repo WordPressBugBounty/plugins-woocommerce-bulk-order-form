@@ -224,7 +224,7 @@ class WooCommerce_Bulk_Order_Form_Standard_Product_Search extends WooCommerce_Bu
 			$label                    = $this->get_output_title( 'TPS', $arr['settings']['product_display_separator'], $title, $label_price, $sku );
 			$suggestion               = array();
 			$suggestion['label']      = html_entity_decode( apply_filters( 'wc_bulk_order_form_label', $label, $price, $title, $sku, $active_currency, $product ) );
-			$suggestion['label']      = strip_tags( $suggestion['label'] );
+			$suggestion['label']      = wp_strip_all_tags( $suggestion['label'] );
 			$suggestion['price']      = $price;
 			$suggestion['price_html'] = $price_html;
 			$suggestion['symbol']     = $active_currency;

@@ -33,7 +33,7 @@ class WooCommerce_Bulk_Order_Form_Template_UI {
 	 */
 	public function render() {
 		$this->attr              = $this->add_extras( $this->atts );
-		$this->attr['formid']    = rand() . time();
+		$this->attr['formid']    = wp_rand() . time();
 		$this->atts['formid']    = $this->attr['formid'];
 		$this->attr['engine']    = $this;
 		$this->attr['reqfields'] = $this->get_hidden_fields();
@@ -178,7 +178,7 @@ class WooCommerce_Bulk_Order_Form_Template_UI {
 		$return = apply_filters( 'wc_bulk_order_form_product_column', $return, $count, $withImg, $name_only, null );
 
 		if ( $echo ) {
-			echo $return;
+			echo wp_kses( $return, WC_BOF_ALLOWED_HTML );
 			return null;
 		}
 		return $return;
@@ -192,13 +192,13 @@ class WooCommerce_Bulk_Order_Form_Template_UI {
 	 */
 	public function get_variation_column( string $count, bool $echo = true ) {
 		$return = '<div class="attributes" id="attribute_' . esc_attr( $count ) . '"  data-count="' . esc_attr( $count ) . '">
-	<input data-count="' . esc_attr( $count ) . '" type="hidden" name="wcbulkorder[wcbof_products][' . esc_attr( $count ) . '][variation_name]" value="" class="variation_name"/>
+	<input data-count="' . esc_attr( $count ) . '" type="hidden" name="wcbulkorder[wcbof_products][' . esc_attr( $count ) . '][variation_name]" value="" class="variation_name" />
 </div>';
 
 		$return = apply_filters( 'wc_bulk_order_form_variation_column', $return, $count, null );
 
 		if ( $echo ) {
-			echo $return;
+			echo wp_kses( $return, WC_BOF_ALLOWED_HTML );
 			return null;
 		}
 		return true;
@@ -213,12 +213,12 @@ class WooCommerce_Bulk_Order_Form_Template_UI {
 	 */
 	public function get_quantity_column( string $count, string $currency_symbol, bool $echo = true ) {
 		$return = '<input type="number" data-count="' . esc_attr( $count ) . '" data-currency="' . esc_attr( $currency_symbol ) . '" 
-			min="0" max="9999" step="1" name="wcbulkorder[wcbof_products][' . esc_attr( $count ) . '][product_qty]" value="" class="product_qty"/>';
+			min="0" max="9999" step="1" name="wcbulkorder[wcbof_products][' . esc_attr( $count ) . '][product_qty]" value="" class="product_qty" />';
 
 		$return = apply_filters( 'wc_bulk_order_form_quantity_column', $return, $count, $currency_symbol, null );
 
 		if ( $echo ) {
-			echo $return;
+			echo wp_kses( $return, WC_BOF_ALLOWED_HTML );
 			return null;
 		}
 		return $return;
@@ -236,7 +236,7 @@ class WooCommerce_Bulk_Order_Form_Template_UI {
 		$return = apply_filters( 'wc_bulk_order_form_variation_column', $return, $count, null );
 
 		if ( $echo ) {
-			echo $return;
+			echo wp_kses( $return, WC_BOF_ALLOWED_HTML );
 		}
 		return $return;
 	}

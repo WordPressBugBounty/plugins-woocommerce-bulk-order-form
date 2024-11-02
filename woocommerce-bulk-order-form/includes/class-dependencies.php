@@ -58,21 +58,21 @@ class WC_Bulk_Order_Form_Dependencies {
 
 	public function notice_php_version_requirement(): void {
 		/* translators: 1. Plugin name, 2. PHP version */
-		$error         = sprintf( __( '<strong>%1$s</strong> requires PHP %2$s or higher.', WC_BOF_TXT ), $this->plugin_name, $this->php_min_version );
-		$how_to_update = __( 'How to update your PHP version', WC_BOF_TXT );
-		printf( '<div class="notice notice-error"><p>%s</p><p><a href="%s">%s</a></p></div>', $error, 'http://docs.wpovernight.com/general/how-to-update-your-php-version/', $how_to_update );
+		$error         = sprintf( __( '<strong>%1$s</strong> requires PHP %2$s or higher.', 'woocommerce-bulk-order-form' ), $this->plugin_name, $this->php_min_version );
+		$how_to_update = __( 'How to update your PHP version', 'woocommerce-bulk-order-form' );
+		printf( '<div class="notice notice-error"><p>%s</p><p><a href="%s">%s</a></p></div>', wp_kses_post( $error ), 'http://docs.wpovernight.com/general/how-to-update-your-php-version/', esc_html( $how_to_update ) );
 	}
 
 	public function notice_woocommerce_requirement(): void {
 		/* translators: 1. Plugin name, 2: Opening anchor tag, 3: Closing anchor tag */
-		$error_message = sprintf( __( '<strong>%1$s</strong> requires %2$sWooCommerce%3$s to be installed & activated!', WC_BOF_TXT ), $this->plugin_name, '<a href="https://wordpress.org/plugins/woocommerce/">', '</a>' );
-		printf( '<div class="notice notice-error"><p>%s</p></div>', $error_message );
+		$error_message = sprintf( __( '<strong>%1$s</strong> requires %2$sWooCommerce%3$s to be installed & activated!', 'woocommerce-bulk-order-form' ), $this->plugin_name, '<a href="https://wordpress.org/plugins/woocommerce/">', '</a>' );
+		printf( '<div class="notice notice-error"><p>%s</p></div>', wp_kses_post( $error_message ) );
 	}
 
 	public function notice_woocommerce_version_requirement(): void {
 		/* translators: 1. Plugin name, 2: WooCommerce version, 3: Opening anchor tag, 4: Closing anchor tag */
-		$error_message = sprintf( __( '<strong>%1$s</strong> requires at least version %2$s of WooCommerce to be installed. %3$sGet the latest version here%4$s!', WC_BOF_TXT ), $this->plugin_name, $this->woocommerce_min_version, '<a href="https://wordpress.org/plugins/woocommerce/">', '</a>' );
-		printf( '<div class="notice notice-error"><p>%s</p></div>', $error_message );
+		$error_message = sprintf( __( '<strong>%1$s</strong> requires at least version %2$s of WooCommerce to be installed. %3$sGet the latest version here%4$s!', 'woocommerce-bulk-order-form' ), $this->plugin_name, $this->woocommerce_min_version, '<a href="https://wordpress.org/plugins/woocommerce/">', '</a>' );
+		printf( '<div class="notice notice-error"><p>%s</p></div>', wp_kses_post( $error_message ) );
 	}
 
 	private function is_active( string $plugin_slug ): bool {

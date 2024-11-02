@@ -1,13 +1,13 @@
-=== Quick/Bulk Order Form for WooCommerce ===
+=== Bulk Order Form for WooCommerce ===
 Contributors: pomegranate,jprummer,varunms,alexmigf,yordansoares
 Author URI: https://wpovernight.com/
 Plugin URL: https://wpovernight.com/downloads/woocommerce-bulk-order-form/
 Tags: WooCommerce, bulk order, quick order, order form
 Donate link: 
 Requires at least: 4.0
-Tested up to: 6.6
+Tested up to: 6.7
 Requires PHP: 7.2
-Stable tag: 3.6.6
+Stable tag: 3.6.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html 
 
@@ -39,6 +39,14 @@ The shortcode is extremely customizable and includes the following awesome featu
 * Create as many forms as you want and customize them with shortcode attributes
 
 == Changelog ==
+
+= 3.6.8 (2024-11-01) =
+* Fix: additional changes for plugin review compliance
+* Translations: Updated translation template (POT)
+
+= 3.6.7 (2024-10-31) =
+* New: comply with WP Plugin Check standards
+* Translations: Updated translation template (POT)
 
 = 3.6.6 (2024-10-14) =
 * Fix: Load plugin translations later in the `init` hook.

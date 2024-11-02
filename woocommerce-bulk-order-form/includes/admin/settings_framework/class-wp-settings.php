@@ -347,8 +347,10 @@ class WooCommerce_Bulk_Order_Form_WP_Settings {
 	 */
 	public function get_current_admin_page(): array {
 		foreach ( $this->pages as $page ) {
-			if ( isset( $_GET['tab'] ) && $_GET['tab'] ) {
-				if ( ( $_GET['tab'] === $page['id'] ) || ( $_GET['tab'] === $page['slug'] ) )
+			$tab = isset( $_GET['tab'] ) ? sanitize_text_field( wp_unslash( $_GET['tab'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			
+			if ( ! empty( $tab ) ) {
+				if ( ( $tab === $page['id'] ) || ( $tab === $page['slug'] ) )
 					$current_page = $page;
 			}
 		}
@@ -625,17 +627,16 @@ class WooCommerce_Bulk_Order_Form_WP_Settings {
 			// Section ids hidden inputs.
 			$section_ids = '';
 			foreach ( $ids as $id ) {
-				$section_ids .= '<input id="'.esc_attr("{$this->page_hook}_{$id}_section_id").'" type="hidden" value="'.esc_attr($id).'" name="'.esc_attr("{$this->page_hook}_{$id}[section_id]").'">';
+				$section_ids .= '<input id="' . esc_attr( "{$this->page_hook}_{$id}_section_id" ) . '" type="hidden" value="' . esc_attr( $id ) . '" name="' . esc_attr( "{$this->page_hook}_{$id}[section_id]" ) . '">';
 			}
 
 			foreach ( $forms as $form ) {
-
 				echo '<form method="post" action="options.php">';
 				// print hidden section_id fields
-				echo wp_kses_post($section_ids); // escaped upon construction a few lines above
+				echo wp_kses_post( $section_ids );
 
 				// lets you add additional fields
-				echo apply_filters( "{$this->page_hook}_form_fields", '', $form['id'], $form );
+				echo wp_kses( apply_filters( "{$this->page_hook}_form_fields", '', $form['id'], $form ), WC_BOF_ALLOWED_HTML );
 
 				settings_fields( $this->page_hook . '' . $form['id'] );
 				wc_bof_do_settings_sections( $this->page_hook . '' . $form['id'] );
@@ -672,44 +673,44 @@ class WooCommerce_Bulk_Order_Form_WP_Settings {
 		if ( ! class_exists( 'WooCommerce_Bulk_Order_Form_Functions' ) || ! class_exists( 'WC_Bulk_Order_Form_Prepopulated_Functions' ) ) :
 		?>
 		<div class="wcbof-extensions-ad">
-			<img src="<?php echo plugins_url( '/assets/images/wpo-helper.png', WC_BOF_FILE ); ?>"
+			<img src="<?php echo esc_url( plugins_url( '/assets/images/wpo-helper.png', WC_BOF_FILE ) ); ?>"
 					class="wpo-helper">
-			<h3><?php _e( 'Check out these premium extensions!', 'woocommerce-bulk-order-form' ); ?></h3>
-			<i>(<?php _e( 'Click items to read more', 'woocommerce-bulk-order-form' ); ?>)</i>
+			<h3><?php esc_html_e( 'Check out these premium extensions!', 'woocommerce-bulk-order-form' ); ?></h3>
+			<i>(<?php esc_html_e( 'Click items to read more', 'woocommerce-bulk-order-form' ); ?>)</i>
 			<ul class="extensions">
 				<?php
 				if ( ! class_exists( 'WooCommerce_Bulk_Order_Form_Pro' ) ) {
 					?>
 					<li>
-						<?php _e( 'Go Pro: Get Bulk Order Form for WooCommerce Pro!', 'woocommerce-bulk-order-form' ) ?>
+						<?php esc_html_e( 'Go Pro: Get Bulk Order Form for WooCommerce Pro!', 'woocommerce-bulk-order-form' ) ?>
 						<div class="more" style="display:none;">
-							<?php _e( 'Supercharge Bulk Order Form for WooCommerce with the following features:', 'woocommerce-bulk-order-form' ); ?>
+							<?php esc_html_e( 'Supercharge Bulk Order Form for WooCommerce with the following features:', 'woocommerce-bulk-order-form' ); ?>
 							<ul>
-								<li><?php _e( 'Let user search by product id, title, sku, or all', 'woocommerce-bulk-order-form' ) ?></li>
-								<li><?php _e( 'Choose from 5 different label outputs for the product field on your bulk order form', 'woocommerce-bulk-order-form' ) ?></li>
-								<li><?php _e( 'Automatically add extra product rows with the "add row" button (can be turned on or off)', 'woocommerce-bulk-order-form' ) ?>
+								<li><?php esc_html_e( 'Let user search by product id, title, sku, or all', 'woocommerce-bulk-order-form' ) ?></li>
+								<li><?php esc_html_e( 'Choose from 5 different label outputs for the product field on your bulk order form', 'woocommerce-bulk-order-form' ) ?></li>
+								<li><?php esc_html_e( 'Automatically add extra product rows with the "add row" button (can be turned on or off)', 'woocommerce-bulk-order-form' ) ?>
 									*
 								</li>
-								<li><?php _e( 'Create and customize as many shortcodes as you want!', 'woocommerce-bulk-order-form' ) ?></li>
-								<li><?php _e( 'Display images in product search', 'woocommerce-bulk-order-form' ) ?></li>
-								<li><?php _e( 'Set custom add to cart success/failure messages', 'woocommerce-bulk-order-form' ) ?></li>
-								<li><?php _e( 'Pick to send user to cart or checkout', 'woocommerce-bulk-order-form' ) ?></li>
-								<li><?php _e( 'Option to include add to cart button next to each product field', 'woocommerce-bulk-order-form' ) ?></li>
+								<li><?php esc_html_e( 'Create and customize as many shortcodes as you want!', 'woocommerce-bulk-order-form' ) ?></li>
+								<li><?php esc_html_e( 'Display images in product search', 'woocommerce-bulk-order-form' ) ?></li>
+								<li><?php esc_html_e( 'Set custom add to cart success/failure messages', 'woocommerce-bulk-order-form' ) ?></li>
+								<li><?php esc_html_e( 'Pick to send user to cart or checkout', 'woocommerce-bulk-order-form' ) ?></li>
+								<li><?php esc_html_e( 'Option to include add to cart button next to each product field', 'woocommerce-bulk-order-form' ) ?></li>
 							</ul>
 							<a href="https://wpovernight.com/downloads/woocommerce-bulk-order-form/?source=settings"
-								target="_blank"><?php _e( "Get Bulk Order Form for WooCommerce Pro!", 'woocommerce-bulk-order-form' ); ?></a>
+								target="_blank"><?php esc_html_e( "Get Bulk Order Form for WooCommerce Pro!", 'woocommerce-bulk-order-form' ); ?></a>
 					</li>
 				<?php } ?>
 				<?php
 				if ( ! class_exists( 'WC_Bulk_Order_Form_Prepopulated_Functions' ) && ! defined( 'BOF_PP_PATH' ) ) {
 					?>
 					<li>
-						<?php _e( 'Bulk Order Form Prepopulated Template', 'woocommerce-bulk-order-form' ) ?>
+						<?php esc_html_e( 'Bulk Order Form Prepopulated Template', 'woocommerce-bulk-order-form' ) ?>
 						<div class="more" style="display:none;">
-							<?php _e( 'Remove the autocomplete search and pre-populate the form with your products and variations. (Very Popular!)', 'woocommerce-bulk-order-form' ); ?>
+							<?php esc_html_e( 'Remove the autocomplete search and pre-populate the form with your products and variations. (Very Popular!)', 'woocommerce-bulk-order-form' ); ?>
 							<br/>
 							<a href="https://wpovernight.com/downloads/wc-bulk-order-form-prepopulated/?source=settings"
-								target="_blank"><?php _e( "Get Bulk Order Form Prepopulated Template!", 'woocommerce-bulk-order-form' ); ?></a>
+								target="_blank"><?php esc_html_e( "Get Bulk Order Form Prepopulated Template!", 'woocommerce-bulk-order-form' ); ?></a>
 						</div>
 					</li>
 				<?php } ?>
