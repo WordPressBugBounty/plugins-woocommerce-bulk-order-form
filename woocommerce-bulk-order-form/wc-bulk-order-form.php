@@ -3,7 +3,7 @@
  * Plugin Name:          Bulk Order Form for WooCommerce
  * Plugin URI:           https://wpovernight.com/downloads/woocommerce-bulk-order-form/
  * Description:          Adds the [wcbulkorder] shortcode which allows you to display bulk order forms on any page in your site
- * Version:              3.6.8
+ * Version:              3.6.9
  * Author:               WP Overnight
  * Author URI:           https://wpovernight.com/
  * License:              GPLv2 or later
@@ -55,7 +55,7 @@ class WooCommerce_Bulk_Order_Form {
 	 *
 	 * @var string
 	 */
-	public $version = '3.6.8';
+	public $version = '3.6.9';
 
 	public function __construct() {
 		$this->define_constant();
@@ -76,6 +76,7 @@ class WooCommerce_Bulk_Order_Form {
 		$this->define( 'WC_BOF_NAME', 'Bulk Order Form for WooCommerce' ); # Plugin Name
 		$this->define( 'WC_BOF_SLUG', 'woocommerce-bulk-order-form' ); # Plugin Slug
 		$this->define( 'WC_BOF_DB', 'wc_bof_' );
+		$this->define( 'WC_BOF_TXT', 'woocommerce-bulk-order-form' ); # Legacy plugin language domain for dependent plugins
 		$this->define( 'WC_BOF_V', $this->version ); # Plugin Version
 		$this->define( 'WC_BOF_LANGUAGE_PATH', WC_BOF_PATH . 'languages' ); # Plugin Language Folder
 		$this->define( 'WC_BOF_ADMIN', WC_BOF_INC . 'admin/' ); # Plugin Admin Folder
