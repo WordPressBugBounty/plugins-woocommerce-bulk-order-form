@@ -117,7 +117,7 @@ class WooCommerce_Bulk_Order_Form_Admin_Settings_Options {
 			'text_type' => 'number',
 			'default'   => '0',
 			'label'     => __( 'Maximum items', 'woocommerce-bulk-order-form' ),
-			'desc'      => __( 'Maximum items to display in a search', 'woocommerce-bulk-order-form' ),
+			'desc'      => __( 'Maximum items to display in a search', 'woocommerce-bulk-order-form' ) . ( class_exists( 'WC_Bulk_Order_Form_Prepopulated' ) ? ' ' . __( 'or the total number of items that appear in the Prepopulated template', 'woocommerce-bulk-order-form' ) : '' ),
 		);
 
 		$fields['general']['general'][] = array(

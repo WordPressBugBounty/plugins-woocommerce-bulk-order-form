@@ -3,7 +3,7 @@
  * Plugin Name:          Bulk Order Form for WooCommerce
  * Plugin URI:           https://wpovernight.com/downloads/woocommerce-bulk-order-form/
  * Description:          Adds the [wcbulkorder] shortcode which allows you to display bulk order forms on any page in your site
- * Version:              3.6.9
+ * Version:              3.6.10
  * Author:               WP Overnight
  * Author URI:           https://wpovernight.com/
  * License:              GPLv2 or later
@@ -11,7 +11,7 @@
  * Text Domain:          woocommerce-bulk-order-form
  * Domain Path:          /languages
  * WC requires at least: 3.0
- * WC tested up to:      9.4
+ * WC tested up to:      9.5
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -55,7 +55,7 @@ class WooCommerce_Bulk_Order_Form {
 	 *
 	 * @var string
 	 */
-	public $version = '3.6.9';
+	public $version = '3.6.10';
 
 	public function __construct() {
 		$this->define_constant();
@@ -64,9 +64,19 @@ class WooCommerce_Bulk_Order_Form {
 		if ( ! $dependency->check_dependencies() ) {
 			return;
 		}
-
+		
 		$this->load_required_files();
-		$this->init_hooks();
+		
+		add_action( 'init', array( $this, 'load_textdomain' ), 8 );
+		// add_filter( 'load_textdomain_mofile', array( $this, 'load_plugin_mo_files' ), 10, 2 );
+		add_action( 'init', array( $this, 'init_class' ), 9 );
+		// HPOS compatibility
+		add_action( 'before_woocommerce_init', array( $this, 'woocommerce_hpos_compatible' ) );
+
+		// run lifecycle methods
+		if ( is_admin() && ! defined( 'DOING_AJAX' ) ) {
+			add_action( 'wp_loaded', array( $this, 'do_install' ) );
+		}
 	}
 
 	private function define_constant(): void {
@@ -179,10 +189,11 @@ class WooCommerce_Bulk_Order_Form {
 	private function load_required_files(): void {
 		$this->load_files( WC_BOF_INC . 'functions.php' );
 		$this->load_files( WC_BOF_INC . 'abstract-*.php' );
+		$this->load_files( WC_BOF_TEMPLATE_PATH . '*.php' );
 		$this->load_files( WC_BOF_INC . 'class-*.php' );
 		$this->load_files( WC_BOF_ADMIN . 'settings_framework/class-wp-*.php' );
-		$this->load_files( WC_BOF_TEMPLATE_PATH . '*' );
 		$this->load_files( WC_BOF_INC . '*.php' );
+		
 		if ( is_admin() ) {
 			$this->load_files( WC_BOF_ADMIN . 'class-*.php' );
 		}
@@ -195,19 +206,6 @@ class WooCommerce_Bulk_Order_Form {
 			} elseif ( 'include' === $type ) {
 				include_once( $files );
 			}
-		}
-	}
-
-	public function init_hooks(): void {
-		add_action( 'init', array( $this, 'load_textdomain' ), 8 );
-		// add_filter( 'load_textdomain_mofile', array( $this, 'load_plugin_mo_files' ), 10, 2 );
-		add_action( 'init', array( $this, 'init_class' ), 9 );
-		// HPOS compatibility
-		add_action( 'before_woocommerce_init', array( $this, 'woocommerce_hpos_compatible' ) );
-
-		// run lifecycle methods
-		if ( is_admin() && ! defined( 'DOING_AJAX' ) ) {
-			add_action( 'wp_loaded', array( $this, 'do_install' ) );
 		}
 	}
 
@@ -246,6 +244,7 @@ class WooCommerce_Bulk_Order_Form {
 		if ( ! function_exists( 'WC' ) ) {
 			return; // WC not active - throw error message?
 		}
+		
 		do_action( 'wc_bof_before_init' );
 
 		self::$functions = new WooCommerce_Bulk_Order_Form_Functions;

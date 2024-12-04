@@ -13,7 +13,7 @@ if ( isset( $args['settings'] ) ) {
 }
 ?>
 
-<div class="variations_form cart" method="post" enctype='multipart/form-data' data-formid="<?php echo esc_attr( $args['formid'] ); ?>" data-product_id="<?php echo absint( $product->get_id() ); ?>" data-product_variations="<?php echo wp_json_encode( $available_variations ); ?>">
+<div class="variations_form cart" method="post" enctype='multipart/form-data' data-formid="<?php echo esc_attr( $args['formid'] ); ?>" data-product_id="<?php echo absint( $product->get_id() ); ?>" data-product_variations="<?php echo wc_esc_json( wp_json_encode( $available_variations ) ); ?>">
 	<input type="hidden" name="wcbulkorder[wcbof_products][REPLACECOUNT][variation_id]" value="" class="variation_id" />
 	<?php if ( empty( $available_variations ) && false !== $available_variations ) : ?>
 		<p class="stock out-of-stock">

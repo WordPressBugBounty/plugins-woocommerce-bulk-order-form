@@ -7,7 +7,7 @@ Donate link:
 Requires at least: 4.0
 Tested up to: 6.7
 Requires PHP: 7.2
-Stable tag: 3.6.9
+Stable tag: 3.6.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html 
 
@@ -39,6 +39,11 @@ The shortcode is extremely customizable and includes the following awesome featu
 * Create as many forms as you want and customize them with shortcode attributes
 
 == Changelog ==
+
+= 3.6.10 (2024-12-04) =
+* Fix: variation form incorrect rendering
+* Tweak: adds missing description in Maximum items for prepopulated template
+* Tested: compatible with WooCommerce 9.5
 
 = 3.6.9 (2024-11-04) =
 * Fix: remove files from SVN that were mistakenly left undeleted
