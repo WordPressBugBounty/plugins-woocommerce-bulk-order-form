@@ -1,15 +1,15 @@
-# Copyright (C) 2024 WP Overnight
+# Copyright (C) 2025 WP Overnight
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Bulk Order Form for WooCommerce 3.6.10\n"
+"Project-Id-Version: Bulk Order Form for WooCommerce 3.7.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-bulk-order-form\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-12-04T12:28:14+00:00\n"
+"POT-Creation-Date: 2025-03-13T14:15:26+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: woocommerce-bulk-order-form\n"
@@ -163,13 +163,13 @@ msgstr ""
 
 #: includes/admin/settings_framework/class-wp-plugin-options.php:182
 #: includes/admin/settings_framework/class-wp-plugin-options.php:265
-#: wc-bulk-order-form.php:429
+#: wc-bulk-order-form.php:405
 msgid "Cart"
 msgstr ""
 
 #: includes/admin/settings_framework/class-wp-plugin-options.php:183
 #: includes/admin/settings_framework/class-wp-plugin-options.php:274
-#: wc-bulk-order-form.php:430
+#: wc-bulk-order-form.php:406
 msgid "Checkout"
 msgstr ""
 
@@ -187,7 +187,7 @@ msgstr ""
 
 #: includes/admin/settings_framework/class-wp-plugin-options.php:217
 #: includes/class-shortcode-handler.php:118
-#: wc-bulk-order-form.php:424
+#: wc-bulk-order-form.php:400
 msgid "Price"
 msgstr ""
 
@@ -197,7 +197,7 @@ msgstr ""
 
 #: includes/admin/settings_framework/class-wp-plugin-options.php:225
 #: includes/class-shortcode-handler.php:119
-#: wc-bulk-order-form.php:425
+#: wc-bulk-order-form.php:401
 msgid "Product"
 msgstr ""
 
@@ -207,7 +207,7 @@ msgstr ""
 
 #: includes/admin/settings_framework/class-wp-plugin-options.php:233
 #: includes/class-shortcode-handler.php:120
-#: wc-bulk-order-form.php:426
+#: wc-bulk-order-form.php:402
 msgid "Qty"
 msgstr ""
 
@@ -217,7 +217,7 @@ msgstr ""
 
 #: includes/admin/settings_framework/class-wp-plugin-options.php:241
 #: includes/class-shortcode-handler.php:121
-#: wc-bulk-order-form.php:427
+#: wc-bulk-order-form.php:403
 msgid "Variation"
 msgstr ""
 
@@ -237,7 +237,7 @@ msgstr ""
 #: includes/admin/settings_framework/class-wp-plugin-options.php:257
 #: includes/class-shortcode-handler.php:131
 #: includes/class-shortcode-handler.php:132
-#: wc-bulk-order-form.php:428
+#: wc-bulk-order-form.php:404
 msgid "Add to cart"
 msgstr ""
 
@@ -393,21 +393,21 @@ msgid "Get Bulk Order Form Prepopulated Template!"
 msgstr ""
 
 #. translators: 1. Plugin name, 2. PHP version
-#: includes/class-dependencies.php:61
+#: includes/class-dependencies.php:46
 msgid "<strong>%1$s</strong> requires PHP %2$s or higher."
 msgstr ""
 
-#: includes/class-dependencies.php:62
+#: includes/class-dependencies.php:47
 msgid "How to update your PHP version"
 msgstr ""
 
 #. translators: 1. Plugin name, 2: Opening anchor tag, 3: Closing anchor tag
-#: includes/class-dependencies.php:68
+#: includes/class-dependencies.php:53
 msgid "<strong>%1$s</strong> requires %2$sWooCommerce%3$s to be installed & activated!"
 msgstr ""
 
 #. translators: 1. Plugin name, 2: WooCommerce version, 3: Opening anchor tag, 4: Closing anchor tag
-#: includes/class-dependencies.php:74
+#: includes/class-dependencies.php:59
 msgid "<strong>%1$s</strong> requires at least version %2$s of WooCommerce to be installed. %3$sGet the latest version here%4$s!"
 msgstr ""
 
@@ -509,10 +509,10 @@ msgstr ""
 msgid "Sorry, this product is unavailable. Please choose a different combination."
 msgstr ""
 
-#: wc-bulk-order-form.php:228
+#: wc-bulk-order-form.php:204
 msgid "Cloning instances of the class is forbidden."
 msgstr ""
 
-#: wc-bulk-order-form.php:240
+#: wc-bulk-order-form.php:216
 msgid "Unserializing instances of the class is forbidden."
 msgstr ""

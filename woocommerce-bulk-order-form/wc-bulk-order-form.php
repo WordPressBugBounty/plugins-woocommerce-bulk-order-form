@@ -3,7 +3,7 @@
  * Plugin Name:          Bulk Order Form for WooCommerce
  * Plugin URI:           https://wpovernight.com/downloads/woocommerce-bulk-order-form/
  * Description:          Adds the [wcbulkorder] shortcode which allows you to display bulk order forms on any page in your site
- * Version:              3.6.10
+ * Version:              3.7.0
  * Author:               WP Overnight
  * Author URI:           https://wpovernight.com/
  * License:              GPLv2 or later
@@ -11,7 +11,7 @@
  * Text Domain:          woocommerce-bulk-order-form
  * Domain Path:          /languages
  * WC requires at least: 3.0
- * WC tested up to:      9.5
+ * WC tested up to:      9.7
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -21,41 +21,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! class_exists( 'WooCommerce_Bulk_Order_Form' ) ):
 
 class WooCommerce_Bulk_Order_Form {
+	
+	public string $version = '3.7.0';
 
-	/**
-	 * _instance
-	 *
-	 * @var WooCommerce_Bulk_Order_Form|null
-	 */
-	protected static $_instance = null;
+	protected static ?WooCommerce_Bulk_Order_Form $_instance = null;
 
-	/**
-	 * functions
-	 *
-	 * @var WooCommerce_Bulk_Order_Form_Functions|null
-	 */
-	protected static $functions = null;
+	protected static ?WooCommerce_Bulk_Order_Form_Functions $functions = null;
 
-	/**
-	 * admin
-	 *
-	 * @var WooCommerce_Bulk_Order_Form_Admin|null
-	 */
-	protected static $admin = null;
+	protected static ?WooCommerce_Bulk_Order_Form_Admin $admin = null;
 
-	/**
-	 * settings
-	 *
-	 * @var WooCommerce_Bulk_Order_Form_Settings_Framework|null
-	 */
-	protected static $settings = null;
-
-	/**
-	 * version
-	 *
-	 * @var string
-	 */
-	public $version = '3.6.10';
+	protected static ?WooCommerce_Bulk_Order_Form_Settings_Framework $settings = null;
 
 	public function __construct() {
 		$this->define_constant();
@@ -152,6 +127,7 @@ class WooCommerce_Bulk_Order_Form {
 				'style'         => array(),
 				'placeholder'   => array(),
 				'disabled'      => array(),
+				'multiple'      => array(),
 			),
 			'textarea' => array(
 				'id'            => array(),

@@ -8,25 +8,10 @@ if ( ! class_exists( 'WC_Bulk_Order_Form_Dependencies' ) ):
 
 class WC_Bulk_Order_Form_Dependencies {
 
-	/**
-	 * @var array|null
-	 */
-	private $activated_plugins;
-
-	/**
-	 * @var string
-	 */
-	private $php_min_version         = '7.2';
-
-	/**
-	 * @var string
-	 */
-	private $woocommerce_min_version = '3.0';
-
-	/**
-	 * @var
-	 */
-	private $plugin_name             = WC_BOF_NAME;
+	private ?array $activated_plugins;
+	private string $php_min_version         = '7.4';
+	private string $woocommerce_min_version = '3.0';
+	private string $plugin_name             = WC_BOF_NAME;
 
 	public function __construct() {
 		$this->activated_plugins = array_merge( get_option( 'active_plugins', array() ), get_site_option( 'active_sitewide_plugins', array() ) );

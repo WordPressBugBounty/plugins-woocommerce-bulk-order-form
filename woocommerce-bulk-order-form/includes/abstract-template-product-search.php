@@ -9,19 +9,15 @@ if ( ! class_exists( 'WooCommerce_Bulk_Order_Form_Template_Product_Search' ) ):
 	abstract class WooCommerce_Bulk_Order_Form_Template_Product_Search {
 
 		/**
+		 * Type of the current template.
+		 *
 		 * @var string
 		 */
-		public $type = ''; # Type of the current template
+		public string $type = '';
 
-		/**
-		 * @var array
-		 */
-		public static $founded_post = array();
+		public static array $founded_post = array();
 
-		/**
-		 * @var array
-		 */
-		private static $post_args = array();
+		private static array $post_args = array();
 
 		public function __construct() {
 			$this->set_default_args();
@@ -118,12 +114,12 @@ if ( ! class_exists( 'WooCommerce_Bulk_Order_Form_Template_Product_Search' ) ):
 		}
 
 		/**
-		 * @param string|array $ids
+		 * @param int $id
 		 *
 		 * @return void
 		 */
-		public function set_post_parent( $ids = array() ): void {
-			self::$post_args['post_parent'] = $ids;
+		public function set_post_parent( int $id ): void {
+			self::$post_args['post_parent'] = $id;
 		}
 
 		public function set_meta_query( array $query = array() ): void {
@@ -142,6 +138,22 @@ if ( ! class_exists( 'WooCommerce_Bulk_Order_Form_Template_Product_Search' ) ):
 				'compare' => 'LIKE'
 			);
 			$this->set_meta_query( apply_filters( 'wc_bof_search_sku_query_args', $args, $term ) );
+		}
+
+		/**
+		 * Set global unique id search.
+		 *
+		 * @param mixed $term
+		 *
+		 * @return void
+		 */
+		public function set_global_unique_id_search( $term ): void {
+			$args = array(
+				'key'     => '_global_unique_id',
+				'value'   => $term,
+				'compare' => 'LIKE'
+			);
+			$this->set_meta_query( apply_filters( 'wc_bof_search_global_unique_id_query_args', $args, $term ) );
 		}
 
 		public function set_search_query( string $s = '' ): void {
@@ -198,19 +210,57 @@ if ( ! class_exists( 'WooCommerce_Bulk_Order_Form_Template_Product_Search' ) ):
 			return self::$post_args;
 		}
 
-		public function get_products(): array {
-			$search_args = $this->get_search_args();
-			$search_args = apply_filters( 'wc_bof_product_search_args', $search_args, $this->type );
-			$posts       = get_posts( $search_args );
+		/**
+		 * Get all products by prepared query.
+		 *
+		 * @param bool $extract_children
+		 *
+		 * @return array
+		 */
+		public function get_products( bool $extract_children = false ): array {
+			$search_args    = $this->get_search_args();
+			$search_args    = apply_filters( 'wc_bof_product_search_args', $search_args, $this->type );
+			$posts          = get_posts( $search_args );
+			$children_posts = array();
+			$parent_posts   = array();
 
 			foreach ( $posts as $key => $post ) {
-				$product      = wc_get_product( $post );
-				$product_type = method_exists( $product, 'get_type' ) ? $product->get_type() : $product->product_type;
+				$product = wc_get_product( $post );
 
-				if ( 'external' === $product_type ) {
+				if ( $this->is_external_product( $product ) ) {
 					unset( $posts[ $key ] );
 				}
+
+				// Get variable products
+				if ( $extract_children && 'variable' === $product->get_type() ) {
+					$children = $product->get_children();
+
+					if ( ! empty( $children ) ) {
+						foreach ( $children as $child ) {
+							$variation_product = wc_get_product( $child );
+
+							if ( ! $this->is_external_product( $variation_product ) ) {
+								$children_posts[] = $variation_product->get_id();
+							}
+						}
+					}
+				}
+
+				// Get parent product from variation
+				if ( 'variation' === $product->get_type() ) {
+					$parent_product = wc_get_product( $product->get_parent_id() );
+
+					if ( ! $this->is_external_product( $parent_product ) ) {
+						$parent_posts[] = $parent_product->get_id();
+					}
+				}
 			}
+
+			// Merge variation products
+			$posts = array_merge( $posts, array_diff( $children_posts, $posts ) );
+
+			// Merge variation parent products
+			$posts = array_merge( $posts, array_diff( $parent_posts, $posts ) );
 
 			$max_results = ( isset( $search_args['posts_per_page'] ) && intval( $search_args['posts_per_page'] ) > 0 ) ? intval( $search_args['posts_per_page'] ) : false;
 			if ( $posts && $max_results && count( $posts ) > $max_results ) {
@@ -220,6 +270,19 @@ if ( ! class_exists( 'WooCommerce_Bulk_Order_Form_Template_Product_Search' ) ):
 			self::$founded_post = apply_filters( 'wc_bof_product_search_results', $posts, $search_args );
 
 			return self::$founded_post;
+		}
+
+		/**
+		 * Check whether a product is an external product.
+		 *
+		 * @param \WC_Product $product
+		 *
+		 * @return bool
+		 */
+		private function is_external_product( \WC_Product $product ): bool {
+			$product_type = method_exists( $product, 'get_type' ) ? $product->get_type() : $product->product_type;
+
+			return 'external' === $product_type;
 		}
 
 		public function search_by_title_init( string $search, WP_Query $wp_query ): string {

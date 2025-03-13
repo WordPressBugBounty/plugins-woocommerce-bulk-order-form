@@ -18,6 +18,8 @@ class WooCommerce_Bulk_Order_Form_Ajax_FrontEnd {
 
 		add_action( 'wp_ajax_wcbulkorder_product_single_buy_now', array( $this, 'ajax_single_add_to_cart_process' ) );
 		add_action( 'wp_ajax_nopriv_wcbulkorder_product_single_buy_now', array( $this, 'ajax_single_add_to_cart_process' ) );
+
+		add_filter( 'wc_bulk_order_form_suggestion', array( $this, 'check_b2b_product_visibility_rules' ), 10, 2 );
 	}
 
 	public function product_search(): void {
@@ -107,6 +109,33 @@ class WooCommerce_Bulk_Order_Form_Ajax_FrontEnd {
 			}
 		}
 		return $new_input;
+	}
+
+	/**
+	 * Apply B2B product visibility rules.
+	 *
+	 * @param array $suggestion
+	 * @param \WC_Product $product
+	 *
+	 * @return array
+	 */
+	public function check_b2b_product_visibility_rules( array $suggestion, \WC_Product $product ): array {
+		if ( ! defined( 'AFPVU_PLUGIN_DIR' ) ) {
+			return $suggestion;
+		}
+
+		if ( ! class_exists( 'Addify_Products_Visibility_Front' ) ) {
+			include_once AFPVU_PLUGIN_DIR . 'class_afpvu_front.php';
+		}
+
+		$addify_products_visibility_front = new \Addify_Products_Visibility_Front();
+		$addify_product_visibility        = $addify_products_visibility_front->afpvu_check_visibility_rules( true, $product->get_id() );
+
+		if ( ! $addify_product_visibility ) {
+			return array();
+		}
+
+		return $suggestion;
 	}
 
 } // end class WooCommerce_Bulk_Order_Form_Ajax_FrontEnd

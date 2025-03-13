@@ -8,10 +8,7 @@ if ( ! class_exists( 'WooCommerce_Bulk_Order_Form_Standard_Product_Search' ) ):
 
 class WooCommerce_Bulk_Order_Form_Standard_Product_Search extends WooCommerce_Bulk_Order_Form_Template_Product_Search {
 
-	/**
-	 * @var array
-	 */
-	private $pid_result;
+	private array $pid_result;
 
 	public function __construct() {
 		add_action( 'wc_bof_render_standard_template_product_search', array( $this, 'init_class' ), 1, 2 );
@@ -33,24 +30,18 @@ class WooCommerce_Bulk_Order_Form_Standard_Product_Search extends WooCommerce_Bu
 	}
 
 	public function search_by_all( array $arr ): array {
-		//$search_results = array();
-		//$search_types = wc_bof_get_search_types();
-		//foreach ( $search_types as $id => $name ) {}
-		//$products_by_sku       = array();
-		//$products_by_id        = array();
-		//$products_by_title     = array();
-
-		$prodcuts_by_attribute = array();
-		$products_by_sku       = $this->search_by_sku( $arr );
-		$products_by_id        = $this->search_by_id( $arr );
-		$products_by_title     = $this->search_by_title( $arr );
-		$status_enabled        = wc_bof_option( 'enable_search_attributes', false );
+		$products_by_attribute        = array();
+		$products_by_sku              = $this->search_by_sku( $arr );
+		$products_by_global_unique_id = $this->search_by_global_unique_id( $arr );
+		$products_by_id               = $this->search_by_id( $arr );
+		$products_by_title            = $this->search_by_title( $arr );
+		$status_enabled               = wc_bof_option( 'enable_search_attributes', false );
 
 		if ( 'on' === $status_enabled ) {
-			$prodcuts_by_attribute = $this->search_by_attribute( $arr );
+			$products_by_attribute = $this->search_by_attribute( $arr );
 		}
 
-		return array_unique( array_merge( $products_by_sku, $products_by_id, $products_by_title, $prodcuts_by_attribute ) );
+		return array_unique( array_merge( $products_by_sku, $products_by_global_unique_id, $products_by_id, $products_by_title, $products_by_attribute ) );
 	}
 
 	public function search_by_sku( array $arr ): array {
@@ -71,6 +62,34 @@ class WooCommerce_Bulk_Order_Form_Standard_Product_Search extends WooCommerce_Bu
 		$this->set_sku_search( $arr['term'] );
 	}
 
+	/**
+	 * Search by global unique id.
+	 *
+	 * @param array $arr
+	 *
+	 * @return array
+	 */
+	public function search_by_global_unique_id( array $arr ): array {
+		$this->_clear_defaults();
+		$this->set_post_per_page( $arr['settings']['max_items'] );
+		$this->set_search_by_global_unique_id( $arr );
+		$products = $this->get_products( true );
+		$this->_clear_defaults();
+
+		return array_unique( array_merge( $products ) );
+	}
+
+	/**
+	 * Set search by global unique id.
+	 *
+	 * @param array $arr
+	 *
+	 * @return void
+	 */
+	public function set_search_by_global_unique_id( array $arr ): void {
+		$this->set_global_unique_id_search( $arr['term'] );
+	}
+
 	public function search_by_id( array $arr ): array {
 		$this->_clear_defaults();
 		$this->set_post_per_page( $arr['settings']['max_items'] );
@@ -84,7 +103,7 @@ class WooCommerce_Bulk_Order_Form_Standard_Product_Search extends WooCommerce_Bu
 
 	public function set_search_by_id_with_post_in( array $arr ): array {
 		if ( is_numeric( $arr['term'] ) ) {
-			$this->set_includes( array( 0, $arr['term'] ) );
+			$this->set_includes( array( $arr['term'] ) );
 			return $this->get_products();
 		}
 		return array();

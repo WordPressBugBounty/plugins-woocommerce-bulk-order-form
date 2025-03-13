@@ -6,8 +6,8 @@ Tags: WooCommerce, bulk order, quick order, order form
 Donate link: 
 Requires at least: 4.0
 Tested up to: 6.7
-Requires PHP: 7.2
-Stable tag: 3.6.10
+Requires PHP: 7.4
+Stable tag: 3.7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html 
 
@@ -39,6 +39,14 @@ The shortcode is extremely customizable and includes the following awesome featu
 * Create as many forms as you want and customize them with shortcode attributes
 
 == Changelog ==
+
+= 3.7.0 (2025-03-13) =
+* New: Add the ability to search products by "Global Unique ID"
+* New: Bump PHP minimum version up to 7.4
+* New: Added compatibility for B2B for WooCommerce (by Addify) product visibility
+* New: The product category field now supports multiple values
+* Update: Updated translation template (POT)
+* Compatibility: Tested up to WooCommerce 9.7 & WordPress 6.7
 
 = 3.6.10 (2024-12-04) =
 * Fix: variation form incorrect rendering
@@ -377,7 +385,7 @@ Prepping for rewrite launch
 = Minimum Requirements =
 
 * WordPress 3.8 or greater
-* PHP version 7.2 or greater
+* PHP version 7.4 or greater
 * MySQL version 5.0 or greater
 
 = Automatic installation =
