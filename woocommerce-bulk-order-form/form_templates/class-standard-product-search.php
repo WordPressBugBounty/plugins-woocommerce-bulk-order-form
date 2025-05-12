@@ -45,7 +45,6 @@ class WooCommerce_Bulk_Order_Form_Standard_Product_Search extends WooCommerce_Bu
 	}
 
 	public function search_by_sku( array $arr ): array {
-		$products = array();
 		$this->_clear_defaults();
 		// TODO: clear defaults should be replaced with something more precise
 		// right now it really clears all, but we need something that can reset stuff
@@ -53,7 +52,7 @@ class WooCommerce_Bulk_Order_Form_Standard_Product_Search extends WooCommerce_Bu
 		// for every request
 		$this->set_post_per_page( $arr['settings']['max_items'] );
 		$this->set_search_by_sku( $arr );
-		$products = $this->get_products();
+		$products = $this->get_products( true );
 		$this->_clear_defaults();
 		return array_unique( array_merge( $products ) );
 	}
@@ -122,7 +121,7 @@ class WooCommerce_Bulk_Order_Form_Standard_Product_Search extends WooCommerce_Bu
 		$this->set_post_per_page( $arr['settings']['max_items'] );
 		$this->set_search_by_title( $arr );
 		$this->set_search_by_title_query();
-		$products = $this->get_products();
+		$products = $this->get_products( true );
 		$this->set_search_by_title_query( 'remove' );
 		return array_unique( array_merge( $products ) );
 	}

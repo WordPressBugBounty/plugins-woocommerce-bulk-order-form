@@ -2,16 +2,16 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Bulk Order Form for WooCommerce 3.7.0\n"
+"Project-Id-Version: Bulk Order Form for WooCommerce 3.7.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-bulk-order-form\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-03-13T14:15:26+00:00\n"
+"POT-Creation-Date: 2025-05-12T12:00:40+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.11.0\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: woocommerce-bulk-order-form\n"
 
 #. Plugin Name of the plugin
@@ -45,6 +45,7 @@ msgstr ""
 
 #. translators: pro extension link
 #: includes/admin/class-admin-init.php:44
+#, php-format
 msgid "This feature is only available in %s"
 msgstr ""
 
@@ -394,6 +395,7 @@ msgstr ""
 
 #. translators: 1. Plugin name, 2. PHP version
 #: includes/class-dependencies.php:46
+#, php-format
 msgid "<strong>%1$s</strong> requires PHP %2$s or higher."
 msgstr ""
 
@@ -403,11 +405,13 @@ msgstr ""
 
 #. translators: 1. Plugin name, 2: Opening anchor tag, 3: Closing anchor tag
 #: includes/class-dependencies.php:53
+#, php-format
 msgid "<strong>%1$s</strong> requires %2$sWooCommerce%3$s to be installed & activated!"
 msgstr ""
 
 #. translators: 1. Plugin name, 2: WooCommerce version, 3: Opening anchor tag, 4: Closing anchor tag
 #: includes/class-dependencies.php:59
+#, php-format
 msgid "<strong>%1$s</strong> requires at least version %2$s of WooCommerce to be installed. %3$sGet the latest version here%4$s!"
 msgstr ""
 
@@ -489,6 +493,7 @@ msgstr[1] ""
 #. translators: 1. URL, 2. product/products
 #: includes/standard-template-add-to-cart-handler.php:55
 #: includes/variation-template-add-to-cart-handler.php:44
+#, php-format
 msgid "<a class=\"button wc-forward\" href=\"%1$s\">View Cart</a> %2$s."
 msgstr ""
 

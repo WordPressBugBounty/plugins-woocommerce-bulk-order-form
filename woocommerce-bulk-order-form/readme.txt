@@ -5,9 +5,9 @@ Plugin URL: https://wpovernight.com/downloads/woocommerce-bulk-order-form/
 Tags: WooCommerce, bulk order, quick order, order form
 Donate link: 
 Requires at least: 4.0
-Tested up to: 6.7
+Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 3.7.0
+Stable tag: 3.7.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html 
 
@@ -39,6 +39,11 @@ The shortcode is extremely customizable and includes the following awesome featu
 * Create as many forms as you want and customize them with shortcode attributes
 
 == Changelog ==
+
+= 3.7.1 (2025-05-12) =
+* Tweak: Extract children when getting products for SKU and Title
+* Update: Updated translation template (POT)
+* Compatibility: Tested up to WooCommerce 9.8 & WordPress 6.8
 
 = 3.7.0 (2025-03-13) =
 * New: Add the ability to search products by "Global Unique ID"
